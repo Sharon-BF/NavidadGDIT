@@ -7,7 +7,7 @@ let config ={
     type: Phaser.AUTO,
     scale: {
         //tamaño de la ventana 
-        width: 1375,
+        width: 1820,
         height: 650,
     },
     backgroundColor: '#1e3c72',
@@ -42,6 +42,11 @@ function preload(){ //se cargan las imagenes
     this.load.image("adorno", "assets/adorno.png");
     this.load.image("bloque","assets/bloque.png");
     this.load.image("sorprise", "assets/sorprise.png");
+    this.load.image("mensaje", "assets/imagen_prueba.png");
+    //Inserta tu foto aquí
+    //this.load.image("nombre_variable", "nombre_carpeta/nombre_archivo.png(también puede estar en.jpg)")
+
+
     
     //Dinamicidad del personaje
     this.load.spritesheet("mario", "assets/spriteMario.png",{
@@ -58,6 +63,8 @@ function create(){
     this.add.sprite(900,250,"santa").setScale(0.7,0.7);
     this.add.sprite(810,410,"arbol").setScale(0.1,0.1);  
     this.add.sprite(1220,310,"tarjeta").setScale(0.2,0.2);
+    //CAMBIA AQUÍ EL NOMBRE DE LA IMAGEN PARA AGREGARLA
+    this.add.sprite(1600,410,"mensaje").setScale(0.7,0.7);
     let ground = this.add.tileSprite(0, H-20,W,30,'ground');
     ground.setOrigin(0,0);
     this.physics.add.existing(ground, true);   
@@ -159,7 +166,7 @@ function update(){
         this.player.anims.play('center', 'true')
     }
 
-    //hailidad de salto
+    //habilidad de salto
     if (this.cursors.up.isDown && this.player.body.touching.down) {
         this.player.setVelocityY(player_config.player_jumpspeed)
     }
